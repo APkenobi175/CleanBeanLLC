@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Bean LLC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fixed Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-title-container">
+                <img src="images/cleanbean.png" alt="Clean Bean LLC Logo" class="logo">
+                <h1>Clean Bean LLC</h1>
+                <p class="tagline">Residential home cleaning service, let us clean your home so you don’t have to!</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#referral">Book cleaning</a></li>
+            <li><a href="#gallery">About us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-container">
+        <div class="top-content">
+            <section id="services" class="section">
+                <h2>Our Services</h2>
+                <p>Serving Cache County, Box Elder County, Weber County, and Davis County. Let's get your home cleaned before the holidays!</p>
+            </section>
+
+            <section id="referral" class="section promo">
+                <h2>Referral Promo</h2>
+                <p>Refer a friend, and after they book and complete their first appointment, you'll receive <strong>1 FREE HOUR</strong> at your next appointment!</p>
+            </section>
+        </div>
+
+        <section id="gallery" class="section gallery">
+            <h2>Before & After</h2>
+            <div class="slideshow-container">
+                <img src="images/before.jpg" alt="Before Cleaning" class="slideshow-image">
+                <img src="images/after.jpg" alt="After Cleaning" class="slideshow-image">
+                <img src="images/before2.jpg" alt="Before Cleaning" class="slideshow-image">
+                <img src="images/after2.jpg" alt="After Cleaning" class="slideshow-image">
+                <button class="prev" onclick="changeSlide(-1)">❮</button>
+                <button class="next" onclick="changeSlide(1)">❯</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Contact us: (435) 279-5153 | <a href="mailto:cleanbeanllc@gmail.com">cleanbeanllc@gmail.com</a></p>
+        <p>© 2024 Clean Bean LLC</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -24,3 +24,16 @@ function toggleMenu() {
 document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
 });
+
+
+function openBooking() {
+    // Show the booking modal
+    const modal = document.getElementById('bookingModal');
+    modal.style.display = 'flex'; // Use flex to center the content
+}
+
+function closeBooking() {
+    // Hide the booking modal
+    const modal = document.getElementById('bookingModal');
+    modal.style.display = 'none';
+}

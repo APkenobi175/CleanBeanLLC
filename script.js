@@ -37,3 +37,11 @@ function closeBooking() {
     const modal = document.getElementById('bookingModal');
     modal.style.display = 'none';
 }
+function toggleMobileNav() {
+    const mobileNav = document.getElementById("mobileNav");
+    if (mobileNav.style.display === "block") {
+        mobileNav.style.display = "none";
+    } else {
+        mobileNav.style.display = "block";
+    }
+}

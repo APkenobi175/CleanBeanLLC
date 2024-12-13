@@ -62,10 +62,20 @@ body {
     text-decoration: underline;
 }
 
+/* Default: Show "Call us at" text */
 .contact-info {
+    display: block; /* Visible by default */
     font-size: 0.9rem;
     color: var(--secondary-color);
 }
+
+/* Mobile Layout: Hide "Call us at" text */
+@media (max-width: 768px) {
+    .contact-info {
+        display: none; /* Hide on small screens */
+    }
+}
+
 
 /* Hero Section */
 
@@ -109,32 +119,10 @@ body {
     margin: 1rem 0;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-}
 
-.hero-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.green-btn {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.green-btn:hover {
-    background-color: #45a049;
-}
+
 
 .white-btn {
     background-color: var(--secondary-color);
@@ -152,28 +140,113 @@ body {
 }
 
 /* Content Section */
+
+
+/* Default: Desktop Layout (Text and Image Side by Side) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    gap: 2rem;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-image {
+    max-width: 40%;
+}
+
+.hero-image img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Layout: Stack Image on Top, Text and Button Below */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center-align text */
+        gap: 1rem; /* Reduce spacing */
+    }
+
+    .hero-content {
+        max-width: 90%; /* Allow text to use more width */
+    }
+
+    .hero-image {
+        max-width: 100%; /* Allow the image to stretch fully */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Adjust text size */
+    }
+
+    .hero-content .hero-btn {
+        display: inline-block; /* Ensure button keeps its block structure */
+        margin: 1rem auto 0; /* Center the button */
+        padding: 0.8rem 1.5rem;
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .hero-content .hero-btn:hover {
+        background-color: #45a049; /* Slightly darker green on hover */
+    }
+}
+
+
+
 .content-section {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center cards on smaller screens */
+    gap: 1rem; /* Reduce gap for smaller screens */
     padding: 2rem;
     background-color: var(--bg-color);
 }
 
 .content-card {
+    flex: 1 1 calc(33.33% - 2rem); /* Three cards per row, adjust on smaller screens */
+    max-width: 300px; /* Prevent overly wide cards */
+    min-width: 250px; /* Ensure cards are not too small */
     text-align: center;
     background-color: var(--secondary-color);
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
 }
 
+/* Ensure images fit properly */
 .content-card img {
     max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
     margin-bottom: 1rem;
 }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .content-card {
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+}
+
 
 
 .content-card h3 {
@@ -234,24 +307,22 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #f44336;
+    top: 10px; /* Stay at the top */
+    left: 10px; /* Move to the top-right corner */
+    background-color: #f44336; /* Red button */
     color: white;
     border: none;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    z-index: 1001; /* Ensure it's above everything */
 }
 
 .close-btn:hover {
-    background-color: #d32f2f;
+    background-color: #d32f2f; /* Darker red on hover */
 }
+
 
 .book-now-btn {
     background-color: var(--primary-color);
@@ -266,3 +337,99 @@ body {
 .book-now-btn:hover {
     background-color: #7da37e;
 }
+
+
+/* Mobile Navigation */
+
+
+/* Default: Mobile navigation hidden */
+.mobile-nav {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--accent-color);
+}
+
+/* Show hamburger menu only on small screens */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+
+    .nav-links {
+        display: none; /* Hide regular navigation */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide regular navigation */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: var(--primary-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-nav a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .mobile-nav a:hover {
+        background-color: var(--accent-color);
+    }
+}
+/* Default: Show regular navigation, hide hamburger menu */
+.nav-links {
+    display: flex; /* Regular navigation is displayed by default */
+    gap: 1.5rem;
+}
+
+.hamburger-menu {
+    display: none; /* Hamburger menu is hidden by default */
+}
+
+/* For Small Screens: Show hamburger menu, hide regular navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide regular navigation on small screens */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on small screens */
+    }
+}
+
